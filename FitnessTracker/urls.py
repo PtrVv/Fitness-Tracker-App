@@ -5,4 +5,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('FitnessTracker.common.urls')),
     path('accounts/', include('FitnessTracker.accounts.urls')),
+    path('goals/', include('FitnessTracker.goals.urls')),
 ]

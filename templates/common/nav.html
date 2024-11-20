@@ -8,7 +8,7 @@
     </div>
     <div class="nav-links">
         {% if user.is_authenticated %}
-            <a href="#">Set Goals</a>
+            <a href="{% url 'set-goal' %}">Set Goals</a>
             <a href="#">Meals</a>
             <a href="#">Workouts</a>
             <a href="#">Profile</a>

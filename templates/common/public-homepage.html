@@ -1,4 +1,10 @@
 {% extends 'common/base.html' %}
+{% load static %}
+
+{% block header %}
+    {{ block.super }}
+        <link rel="stylesheet" href="{% static 'css/goals.css' %}">
+{% endblock %}
 
 {% block content %}
     <section class="goals-section">

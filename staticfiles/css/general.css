@@ -15,33 +15,4 @@ a:hover {
     text-decoration: underline;
 }
 
-.goals-section {
-    text-align: center;
-    padding: 20px;
-}
-
-.goals-section h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.goals-section p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.goals-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.goals-section ul li {
-    background-color: #fff;
-    margin: 10px auto;
-    padding: 10px 15px;
-    max-width: 400px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
 

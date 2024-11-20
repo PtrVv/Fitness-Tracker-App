@@ -1,3 +1,27 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
-# Create your models here.
+
+UserModel = get_user_model()
+
+
+class Goal(models.Model):
+    user = models.ForeignKey(
+        to=UserModel,
+        on_delete=models.CASCADE,
+        related_name='goals',
+    )
+
+    name = models.CharField(
+        max_length=100,
+    )
+
+    description = models.TextField(
+        max_length=200,
+    )
+
+    target_date = models.DateField()
+
+    is_completed = models.BooleanField(
+        default=False,
+    )

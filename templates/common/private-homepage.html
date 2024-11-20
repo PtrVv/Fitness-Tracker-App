@@ -1,7 +1,40 @@
 {% extends 'common/base.html' %}
+{% load static %}
+
+{% block header %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/goals.css' %}">
+{% endblock %}
 
 {% block content %}
     <section class="goals-section">
         <h1>Welcome {{ user.username }} to Fitness Tracker</h1>
+        {% if user.goals.all %}
+            <h2>Your Goals</h2>
+        {% else %}
+            <h3>You haven't set any goals yet</h3>
+        {% endif %}
+
+        <div class="goals-container">
+            <div class="goal-cards">
+                {% for goal in user.goals.all %}
+                    <div class="goal-card">
+                        <h3>{{ goal.name }}</h3>
+                        <p><strong>Description:</strong> {{ goal.description }}</p>
+                        <p><strong>Target Date:</strong> {{ goal.duration }}</p>
+
+                         {% if goal.is_completed %}
+                            <span class="checkmark">✔</span>
+                         {% endif %}
+
+                        <!-- You can add links to edit or delete the goal -->
+                        <div class="goal-actions">
+                            <a href="{% url 'edit-goal' goal.pk %}" class="button">Edit</a>
+                            <a href="{% url 'delete-goal' goal.pk %}" class="button delete">Delete</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </section>
 {% endblock %}
