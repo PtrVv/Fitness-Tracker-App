@@ -1,0 +1,33 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Edit Profile</h2>
+        <form method="post" action="{% url 'profile-edit' profile.pk %}">
+            {% csrf_token %}
+
+{#            <h3>Profile Details</h3>#}
+            <div class="form-group">
+                <label>First Name:</label>
+                {{ form.first_name }}
+            </div>
+
+            <div class="form-group">
+                <label>Last Name:</label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="form-group">
+                <label>Age:</label>
+                {{ form.age }}
+            </div>
+
+            <div class="form-group">
+                <label>Profile Picture/URL:</label>
+                {{ form.profile_picture }}
+            </div>
+
+            <button type="submit" class="button-9">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

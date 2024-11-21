@@ -26,4 +26,3 @@ class EditGoalForm(BaseGoalForm):
 
 class DeleteGoalForm(BaseGoalForm, DisableFieldsMixin):
     disabled_fields = ('__all__',)
-
