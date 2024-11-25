@@ -1,0 +1,31 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block header %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/meals-homepage.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="add-meal-container">
+        <a href="{% url 'add-meal' %}" class="add-meal-button">Add Meal</a>
+    </div>
+    
+    <div class="meals-container">
+    
+    {% for meal in meals %}
+        <div class="meal-card">
+            <a href="{% url 'edit-meal' meal.id %}" class="edit-button">Edit</a>
+            <h3>{{ meal.name }}</h3>
+            <p><strong>Calories:</strong> {{ meal.calories }}</p>
+            <p>{{ meal.description }}</p>
+        
+        <details class="dropdown-container">
+            <summary class="dropdown-trigger">View Recipe</summary>
+            <p>{{ meal.recipe }}</p>
+        </details>
+        </div>
+    {% endfor %}
+    </div>
+    
+{% endblock %}

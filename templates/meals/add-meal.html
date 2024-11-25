@@ -1,34 +1,38 @@
 {% extends 'common/base.html' %}
-{% load static %}
 
 
 {% block content %}
     <div class="form-container">
-        <h2 class="form-title">Set Goal</h2>
+        <h2 class="form-title">Add Meal</h2>
 
         <form method="post">
             {% csrf_token %}
             
             <div class="form-group">
-                <label for="goal-name">Goal Name</label>
+                <label for="goal-name">Meal Name</label>
                 {{ form.name }}
             </div>
 
             <div class="form-group">
-                <label for="goal-description">Description</label>
-                {{ form.description }}
+                <label for="goal-description">Calories</label>
+                {{ form.calories }}
             </div>
 
             <div class="form-group">
-                <label for="goal-duration">Target Date</label>
-                {{ form.target_date }}
+                <label for="goal-duration">Description</label>
+                {{ form.description }}
+            </div>
+        
+            <div class="form-group">
+                <label for="goal-duration">Recipe</label>
+                {{ form.recipe }}
             </div>
             
             {% if user.goals.count == 5 %}
                 <a class="button-9">You've reached the maximum goals!</a>
             {% else %}
                 <div class="form-actions">
-                    <input type="submit" value="Set Goal" class="button-9">
+                    <input type="submit" value="Add Meal" class="button-9">
                 </div>
             {% endif %}
         </form>

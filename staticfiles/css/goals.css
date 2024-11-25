@@ -60,14 +60,14 @@ h1 {
     color: #555;
     margin: 5px 0;
     font-size: 1em;
-    flex-grow: 1; /* Allows text content to take up available space */
+    flex-grow: 1;
 }
 
 .goal-actions {
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
-    opacity: 0; /* Hide buttons by default */
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
@@ -88,6 +88,7 @@ h1 {
 
 .button:hover {
     background-color: #212a3e;
+    text-decoration: none;
 }
 
 .delete {
@@ -96,6 +97,7 @@ h1 {
 
 .delete:hover {
     background-color: #c0392b;
+    text-decoration: none;
 }
 
 .goal-card .checkmark {

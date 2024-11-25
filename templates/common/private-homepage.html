@@ -17,11 +17,12 @@
 
         <div class="goals-container">
             <div class="goal-cards">
+                {% if user.goals.count <= 5 %}
                 {% for goal in user.goals.all %}
                     <div class="goal-card">
                         <h3>{{ goal.name }}</h3>
                         <p><strong>Description:</strong> {{ goal.description }}</p>
-                        <p><strong>Target Date:</strong> {{ goal.duration }}</p>
+                        <p><strong>Target Date:</strong> {{ goal.target_date }}</p>
 
                          {% if goal.is_completed %}
                             <span class="checkmark">✔</span>
@@ -34,6 +35,7 @@
                         </div>
                     </div>
                 {% endfor %}
+                {% endif %}
             </div>
         </div>
     </section>
