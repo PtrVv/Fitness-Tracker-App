@@ -30,8 +30,8 @@
 
                         <!-- You can add links to edit or delete the goal -->
                         <div class="goal-actions">
-                            <a href="{% url 'edit-goal' goal.pk %}" class="button">Edit</a>
-                            <a href="{% url 'delete-goal' goal.pk %}" class="button delete">Delete</a>
+                            <a href="{% url 'edit-goal' goal.pk %}" class="button" style="text-decoration: none">Edit</a>
+                            <a href="{% url 'delete-goal' goal.pk %}" class="button delete" style="text-decoration: none">Delete</a>
                         </div>
                     </div>
                 {% endfor %}

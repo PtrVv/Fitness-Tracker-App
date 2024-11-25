@@ -4,7 +4,9 @@
 {% block content %}
     <div class="form-container">
         <h2 class="form-title">Edit Meal</h2>
-
+        
+{#        <a href="{% url 'meals-homepage' %}" class="go-back">Go Back</a>#}
+        
         <form method="post">
             {% csrf_token %}
             

@@ -5,6 +5,8 @@
     <div class="form-container">
         <h2 class="form-title">Add Meal</h2>
 
+{#        <a href="{% url 'meals-homepage' %}" class="go-back">Go Back</a>#}
+
         <form method="post">
             {% csrf_token %}
             
@@ -28,13 +30,9 @@
                 {{ form.recipe }}
             </div>
             
-            {% if user.goals.count == 5 %}
-                <a class="button-9">You've reached the maximum goals!</a>
-            {% else %}
-                <div class="form-actions">
-                    <input type="submit" value="Add Meal" class="button-9">
-                </div>
-            {% endif %}
+            <div class="form-actions">
+                <input type="submit" value="Add Meal" class="button-9">
+            </div>
         </form>
     </div>
 {% endblock %}

@@ -88,7 +88,6 @@ h1 {
 
 .button:hover {
     background-color: #212a3e;
-    text-decoration: none;
 }
 
 .delete {
@@ -97,7 +96,6 @@ h1 {
 
 .delete:hover {
     background-color: #c0392b;
-    text-decoration: none;
 }
 
 .goal-card .checkmark {
