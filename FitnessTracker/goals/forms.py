@@ -8,10 +8,6 @@ class BaseGoalForm(forms.ModelForm):
         model = Goal
         exclude = ('user',)
 
-    help_text = {
-        'duration': 'Amount of days it would take to achieve your goal!',
-    }
-
 
 class SetGoalForm(BaseGoalForm):
     class Meta(BaseGoalForm.Meta):

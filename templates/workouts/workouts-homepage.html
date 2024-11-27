@@ -8,7 +8,7 @@
 
 {% block content %}
     <div class="add-meal-container">
-        <a href="{% url 'add-meal' %}" class="add-meal-button">Add Meal</a>
+        <a href="{% url 'add-workout' %}" class="add-meal-button">Add Workout</a>
     </div>
     
     <div class="pagination">
@@ -30,16 +30,16 @@
     </div>
     
     <div class="meals-container">
-    {% for meal in page_obj %}
+    {% for workout in page_obj %}
         <div class="meal-card">
-            <a href="{% url 'edit-meal' meal.id %}" class="edit-button">Edit</a>
-            <h3>{{ meal.name }}</h3>
-            <p><strong>Calories:</strong> {{ meal.calories }}</p>
-            <p>{{ meal.description }}</p>
-        
+            <a href="{% url 'edit-workout' workout.id %}" class="edit-button">Edit</a>
+            <h3>{{ workout.name }}</h3>
+{#            <p><strong>Calories:</strong> {{ meal.calories }}</p>#}
+            <p>{{ workout.description }}</p>
+
         <details class="dropdown-container">
-            <summary class="dropdown-trigger">View Recipe</summary>
-            <p>{{ meal.recipe }}</p>
+            <summary class="dropdown-trigger">Exercises</summary>
+            <p>{{ workout.exercises|linebreaksbr }}</p>
         </details>
         </div>
     {% endfor %}

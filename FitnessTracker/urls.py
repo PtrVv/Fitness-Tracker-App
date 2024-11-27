@@ -7,4 +7,5 @@ urlpatterns = [
     path('accounts/', include('FitnessTracker.accounts.urls')),
     path('goals/', include('FitnessTracker.goals.urls')),
     path('meals/', include('FitnessTracker.meals.urls')),
+    path('workouts/', include('FitnessTracker.workouts.urls')),
 ]

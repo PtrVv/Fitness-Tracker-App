@@ -39,13 +39,12 @@ h1 {
     transition: transform 0.3s ease-in-out;
     position: relative;
     display: flex;
-    flex-direction: column; /* Ensures that content and buttons are stacked */
-    justify-content: space-between; /* Pushes buttons to the bottom */
-    height: 100%; /* Ensures the card stretches to fill its container */
-    overflow: hidden; /* Prevents the buttons from overflowing */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
 }
 
-/* Show the card with hover effect */
 .goal-card:hover {
     transform: translateY(-10px);
 }

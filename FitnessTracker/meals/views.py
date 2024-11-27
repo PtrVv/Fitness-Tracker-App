@@ -12,6 +12,10 @@ class AddMealView(LoginRequiredMixin, CreateView):
     template_name = 'meals/add-meal.html'
     success_url = reverse_lazy('meals-homepage')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 class EditMealView(UpdateView):
     model = Meal
@@ -26,10 +30,5 @@ class MealsHomepage(ListView):
     context_object_name = 'meals'
     paginate_by = 3
 
-    # template_name = 'meals/meals-homepage.html'
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['meals'] = Meal.objects.all()
-    #
-    #     return context
+    def get_queryset(self):
+        return Meal.objects.filter(user=self.request.user)
