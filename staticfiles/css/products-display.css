@@ -1,11 +1,11 @@
-.add-meal-container {
+.add-product-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-.add-meal-button {
+.add-product-button {
     padding: 15px 30px;
     background-color: #394867;
     color: white;
@@ -17,17 +17,17 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.add-meal-button:hover {
+.add-product-button:hover {
     background-color: #212a3e;
     transform: scale(1.05);
     text-decoration: none;
 }
 
-.add-meal-button:focus {
+.add-product-button:focus {
     outline: none;
 }
 
-.meals-container {
+.products-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -36,7 +36,7 @@
     max-width: 800px;
 }
 
-.meal-card {
+.product-card {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -45,13 +45,13 @@
     position: relative;
 }
 
-.meal-card h3 {
+.product-card h3 {
     color: #2c3e50;
     font-size: 1.5em;
     margin-bottom: 10px;
 }
 
-.meal-card p {
+.product-card p {
     color: #555;
     margin: 5px 0;
     font-size: 1em;

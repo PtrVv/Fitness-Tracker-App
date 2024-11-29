@@ -32,6 +32,6 @@ class GoalDeleteView(DeleteView, FormView):
 
     def get_initial(self):
         pk = self.kwargs.get(self.pk_url_kwarg)
-        post = Goal.objects.get(pk=pk)
-        return post.__dict__
+        goal = Goal.objects.get(pk=pk)
+        return goal.__dict__
 

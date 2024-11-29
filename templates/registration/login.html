@@ -1,15 +1,19 @@
 {% extends 'common/base.html' %}
 {% load static %}
 
-{% block header %}
-    {{ block.super }}
-        <link rel="stylesheet" href="{% static 'css/all-forms.css' %}">
-{% endblock %}
 
 {% block content %}
 <div class="form-container">
     <form method="post">
         {% csrf_token %}
+
+        {% if form.errors %}
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <div class="error-messages">{{ error }}</div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
 
         <div class="form-group">
             <label for="username">Username/Email:</label>

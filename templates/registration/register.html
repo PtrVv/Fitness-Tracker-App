@@ -24,6 +24,11 @@
 
         <div class="form-group">
             <label for="password2">Confirm Password:</label>
+            {% if form.password2.errors %}
+                {% for error in form.password2.errors %}
+                    <div class="error-messages">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
             {{ form.password2 }}
         </div>
 

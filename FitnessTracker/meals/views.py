@@ -1,8 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView, UpdateView, ListView
+from django.views.generic import CreateView, TemplateView, UpdateView, ListView, DeleteView, FormView
 
-from FitnessTracker.meals.forms import MealForm, EditMealForm
+from FitnessTracker.meals.forms import MealForm, EditMealForm, DeleteMealForm
 from FitnessTracker.meals.models import Meal
 
 
@@ -32,3 +32,15 @@ class MealsHomepage(ListView):
 
     def get_queryset(self):
         return Meal.objects.filter(user=self.request.user)
+
+
+class DeleteMealView(DeleteView, FormView):
+    model = Meal
+    form_class = DeleteMealForm
+    template_name = 'meals/delete-meal.html'
+    success_url = reverse_lazy('meals-homepage')
+
+    def get_initial(self):
+        pk = self.kwargs.get(self.pk_url_kwarg)
+        meal = Meal.objects.get(pk=pk)
+        return meal.__dict__

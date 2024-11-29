@@ -3,12 +3,12 @@
 
 {% block header %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static 'css/meals-homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products-display.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="add-meal-container">
-        <a href="{% url 'add-workout' %}" class="add-meal-button">Add Workout</a>
+    <div class="add-product-container">
+        <a href="{% url 'add-workout' %}" class="add-product-button">Add Workout</a>
     </div>
     
     <div class="pagination">
@@ -29,12 +29,12 @@
         </span>
     </div>
     
-    <div class="meals-container">
+    <div class="products-container">
     {% for workout in page_obj %}
-        <div class="meal-card">
+        <div class="product-card">
+            <a href="{% url 'delete-workout' workout.id %}" class="cross-button" title="Delete Workout">✖</a>
             <a href="{% url 'edit-workout' workout.id %}" class="edit-button">Edit</a>
             <h3>{{ workout.name }}</h3>
-{#            <p><strong>Calories:</strong> {{ meal.calories }}</p>#}
             <p>{{ workout.description }}</p>
 
         <details class="dropdown-container">

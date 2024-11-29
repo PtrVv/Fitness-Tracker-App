@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, FormView
 
-from FitnessTracker.workouts.forms import AddWorkoutForm, EditWorkoutForm
+from FitnessTracker.workouts.forms import AddWorkoutForm, EditWorkoutForm, DeleteWorkoutForm
 from FitnessTracker.workouts.models import Workout
 
 
@@ -31,3 +31,15 @@ class EditWorkoutView(UpdateView):
     form_class = EditWorkoutForm
     template_name = 'workouts/edit-workout.html'
     success_url = reverse_lazy('workouts-homepage')
+
+
+class DeleteWorkoutView(DeleteView, FormView):
+    model = Workout
+    form_class = DeleteWorkoutForm
+    template_name = 'workouts/delete-workout.html'
+    success_url = reverse_lazy('workouts-homepage')
+
+    def get_initial(self):
+        pk = self.kwargs.get(self.pk_url_kwarg)
+        workout = Workout.objects.get(pk=pk)
+        return workout.__dict__

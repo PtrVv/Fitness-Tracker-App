@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+    <div class="form-container">
+        <h2 class="form-title">Delete Meal</h2>
+
+{#        <a href="{% url 'meals-homepage' %}" class="go-back">Go Back</a>#}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="goal-name">Meal Name</label>
+                {{ form.name }}
+            </div>
+
+            <div class="form-group">
+                <label for="goal-description">Calories</label>
+                {{ form.calories }}
+            </div>
+
+            <div class="form-group">
+                <label for="goal-duration">Description</label>
+                {{ form.description }}
+            </div>
+        
+            <div class="form-group">
+                <label for="goal-duration">Recipe</label>
+                {{ form.recipe }}
+            </div>
+            
+            <div class="form-actions">
+                <input type="submit" value="Delete" class="button-9">
+            </div>
+        </form>
+    </div>
+{% endblock %}
