@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+
+            <h2 class="form-title">{{ weekday.name }}</h2>
+
+            <div class="form-group">
+                <label for="weekday">Today's Workout:</label>
+                {{ form.workouts }}
+            </div>
+
+            <div class="form-group">
+                <label for="weekday">Select meals:</label>
+                {{ form.meals }}
+            </div>
+            
+            <div class="form-group">
+                <label for="weekday">Summary:</label>
+                {{ form.summary }}
+            </div>
+
+            <button type="submit" class="button-9">Save</button>
+        </form>
+    </div>
+
+{% endblock %}

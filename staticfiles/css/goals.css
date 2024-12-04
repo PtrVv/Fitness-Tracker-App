@@ -27,6 +27,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
+    grid-row-gap: 50px;
     margin-top: 30px;
 }
 
@@ -48,6 +49,7 @@ h1 {
 .goal-card:hover {
     transform: translateY(-10px);
 }
+
 
 .goal-card h3 {
     color: #2c3e50;
