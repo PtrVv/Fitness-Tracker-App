@@ -12,11 +12,34 @@
             <a href="{% url 'set-goal' %}">Set Goal</a>
             <a href="{% url 'meals-homepage' %}">Meals</a>
             <a href="{% url 'workouts-homepage' %}">Workouts</a>
-            <a href="{% url 'profile-details' user.pk %}">Profile</a>
-            <a href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
+
+             <div class="tooltip-container">
+                <a href="{% url 'profile-details' user.pk %}" class="profile-icon">
+                    <i class="fas fa-solid fa-user icon"></i>
+                </a>
+                <div class="tooltip">Profile</div>
+            </div>
+
+            <div class="tooltip-container">
+                <a href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()" class="profile-icon">
+                    <i class="fas fa-sign-out-alt icon"></i>
+                </a>
+                <div class="tooltip">Logout</div>
+            </div>
         {% else %}
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'register' %}">Register</a>
+            <div class="tooltip-container">
+                <a href="{% url 'login' %}" class="profile-icon">
+                    <i class="fas fa-sign-in-alt icon"></i>
+                </a>
+                <div class="tooltip">Login</div>
+            </div>
+            
+            <div class="tooltip-container">
+                <a href="{% url 'register' %}" class="profile-icon">
+                    <i class="fas fa-user-plus icon"></i>
+                </a>
+                <div class="tooltip">Register</div>
+            </div>
         {% endif %}
     </div>
 </nav>

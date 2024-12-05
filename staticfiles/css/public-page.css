@@ -1,0 +1,113 @@
+.public-goals-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center; /* Center the "Welcome" text */
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.public-goal-cards {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px;  /* Space between the cards */
+    margin-top: 30px;
+}
+
+.public-goal-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Ensure the content stacks vertically */
+    justify-content: space-between;
+    height: auto;
+    width: 100%; /* Make cards full-width within the container */
+    max-width: 800px; /* Optional: limit the max width of each card */
+    margin: 0 auto; /* Center the cards */
+}
+
+.public-goal-card:hover {
+    transform: translateY(-10px);
+}
+
+.public-goal-card .goal-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.public-goal-card .profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.public-goal-card h3 {
+    font-size: 1.5em;
+    color: #2c3e50;
+}
+
+.public-goal-card h4 {
+    font-size: 1.2em;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.public-goal-card p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.public-goal-card .goal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #394867;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #212a3e;
+}
+
+.delete {
+    background-color: #e74c3c;
+}
+
+.delete:hover {
+    background-color: #c0392b;
+}
+
+.goal-card.achieved {
+    border-color: #28a745;
+    background-color: #e8f7e5;
+}

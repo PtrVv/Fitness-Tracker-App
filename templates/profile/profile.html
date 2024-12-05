@@ -1,6 +1,10 @@
 {% extends 'common/base.html' %}
 {% load static %}
 
+{% block title %}
+    <title>{{ profile.user.username }} - Fitness Tracker</title>
+{% endblock %}
+
 {% block header %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">

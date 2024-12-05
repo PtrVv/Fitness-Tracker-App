@@ -5,7 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Tracker</title>
+    {% block title %}
+        <title>Fitness Tracker</title>
+    {% endblock %}
+    <link rel="icon" href="{% static 'images/webpage-logo.png' %}" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     {% block header %}
         <link rel="stylesheet" href="{% static 'css/all-styles.css' %}">
     {% endblock %}
@@ -22,5 +29,27 @@
     <footer>
         <p>© 2024 Fitness Tracker. All rights reserved.</p>
     </footer>
+    
+    {% block extra_js %}
+    <!-- JavaScript to hide the footer on scroll -->
+    <script>
+        let lastScrollTop = 0;
+        const footer = document.querySelector('footer');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // User is scrolling down, hide the footer
+                footer.classList.add('hidden');
+            } else {
+                // User is scrolling up, show the footer
+                footer.classList.remove('hidden');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll values
+        });
+    </script>
+    {% endblock %}
 </body>
 </html>
