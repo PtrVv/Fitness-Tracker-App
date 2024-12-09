@@ -25,3 +25,20 @@ class Goal(models.Model):
     is_completed = models.BooleanField(
         default=False,
     )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    make_public = models.BooleanField(
+        default=False,
+    )
+
+    approved = models.BooleanField(
+        default=False,
+    )
+
+    class Meta:
+        permissions = [
+            ('can_approve_goals', 'Can approve goals'),
+        ]

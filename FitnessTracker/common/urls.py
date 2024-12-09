@@ -1,6 +1,7 @@
 from django.urls import path
-from FitnessTracker.common.views import IndexView
+from FitnessTracker.common.views import PublicHomepageView, PrivateHomepageView
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
+    path('', PublicHomepageView.as_view(), name='public-index'),
+    path('goals/', PrivateHomepageView.as_view(), name='private-index'),
 ]

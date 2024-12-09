@@ -11,8 +11,15 @@
         <h1>Welcome {{ user.username }} to Fitness Tracker</h1>
         {% if user.goals.all %}
             <h2>Your Goals</h2>
+
         {% else %}
             <h3>You haven't set any goals yet</h3>
+        {% endif %}
+
+        {% if user.goals.count < 5 %}
+            <a href="{% url 'set-goal' %}" class="add-button">
+                <i class="fas fa-plus-circle"></i> Add New Goal
+            </a>
         {% endif %}
 
         <div class="goals-container">

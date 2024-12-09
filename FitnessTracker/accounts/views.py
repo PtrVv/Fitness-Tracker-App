@@ -1,9 +1,11 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.http import Http404
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, UpdateView
 from FitnessTracker.accounts.forms import UserForm, ProfileForm
 from FitnessTracker.accounts.models import Profile
+from FitnessTracker.mixins import UserOwnershipMixin
 
 
 class UserRegistrationView(CreateView):
@@ -23,11 +25,11 @@ class ProfileDetailsView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class EditProfileView(LoginRequiredMixin, UpdateView):
+class EditProfileView(LoginRequiredMixin, UserOwnershipMixin, UpdateView):
     model = Profile
     template_name = 'profile/profile-edit.html'
     form_class = ProfileForm
+    success_url = reverse_lazy('profile-details')
 
-    def get_success_url(self):
-        return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})
-
+    # def get_success_url(self):
+    #     return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})

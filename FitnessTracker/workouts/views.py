@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, FormView
 
+from FitnessTracker.mixins import UserOwnershipMixin
 from FitnessTracker.workouts.forms import AddWorkoutForm, EditWorkoutForm, DeleteWorkoutForm
 from FitnessTracker.workouts.models import Workout
 
@@ -26,14 +27,14 @@ class AddWorkoutView(CreateView):
         return super().form_valid(form)
 
 
-class EditWorkoutView(UpdateView):
+class EditWorkoutView(UserOwnershipMixin, UpdateView):
     model = Workout
     form_class = EditWorkoutForm
     template_name = 'workouts/edit-workout.html'
     success_url = reverse_lazy('workouts-homepage')
 
 
-class DeleteWorkoutView(DeleteView, FormView):
+class DeleteWorkoutView(UserOwnershipMixin, DeleteView, FormView):
     model = Workout
     form_class = DeleteWorkoutForm
     template_name = 'workouts/delete-workout.html'

@@ -13,8 +13,13 @@
 {% block content %}
     <div class="profile-container">
         <div class="profile-header">
-            <img src="{{ profile.profile_picture|default:'/static/images/default-profile.png' }}"
+            {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture|default:'/staticfiles/images/default_pfp.jpg' }}"
                  alt="Profile Picture" class="profile-picture">
+            {% else %}
+                <img src="{% static 'images/default_pfp.jpg' %}"
+                 alt="Profile Picture" class="profile-picture">
+            {% endif %}
             <h1 class="profile-name">{{ profile.first_name }} {{ profile.last_name }}</h1>
         </div>
 

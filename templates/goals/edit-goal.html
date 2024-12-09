@@ -23,6 +23,14 @@
                 <label for="goal-duration">Target Date</label>
                 {{ form.target_date }}
             </div>
+            
+            <div class="form-group">
+                <label for="goal-duration">Make Public</label>
+                {{ form.make_public }}
+                {% if form.make_public.help_text %}
+                    <small class="form-text text-muted">{{ form.make_public.help_text }}</small>
+                {% endif %}
+            </div>
 
             <div class="form-group">
                 <label for="goal-completed">Goal completed</label>

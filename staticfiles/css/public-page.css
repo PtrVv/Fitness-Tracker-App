@@ -13,7 +13,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 2.0em;
     margin-bottom: 20px;
     color: #333;
     text-align: center;
@@ -74,7 +74,7 @@ h2 {
 .public-goal-card p {
     font-size: 1.1em;
     color: #555;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     line-height: 1.6;
 }
 
@@ -111,3 +111,35 @@ h2 {
     border-color: #28a745;
     background-color: #e8f7e5;
 }
+
+.created-at {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+    color: #777;
+    background-color: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.approval-icon a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #394867;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.approval-icon:hover a {
+    color: #212a3e;
+}
+
+.approval-icon i {
+    pointer-events: none;
+    color: inherit;
+}
+

@@ -16,15 +16,27 @@
         
         <div class="public-goal-cards">
             {% for goal in goals %}
-                {% if not goal.user.is_superuser %}
-                <div class="public-goal-card">
-                    <div class="goal-header">
-                        <img src="{{ goal.user.profile.profile_picture }}" alt="Profile Picture" class="profile-img">
-                        <h3>{{ goal.user.username }}</h3>
+                {% if goal.make_public %}
+                    <div class="public-goal-card">
+                        {% if not goal.approved %}
+                            {% if 'goals.can_approve_goals' in request.user.get_group_permissions or perms.goals.can_do_approve %}
+                                <div class="approval-icon">
+                                    <a href="{% url 'approve' goal.pk %}"><i class="fas fa-check-circle"></i></a>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+
+                        <div class="goal-header">
+                            <img src="{{ goal.user.profile.profile_picture }}" alt="Profile Picture" class="profile-img">
+                            <h3>{{ goal.user.username }}</h3>
+                        </div>
+                        <h4>{{ goal.name }}</h4>
+                        <p>{{ goal.description }}</p>
+
+                        <div class="created-at">
+                            Created on: {{ goal.created_at|date:"F j, Y" }}
+                        </div>
                     </div>
-                    <h4>{{ goal.name }}</h4>
-                    <p>{{ goal.description }}</p>
-                </div>
                 {% endif %}
             {% endfor %}
         </div>

@@ -4,6 +4,7 @@ from django.views.generic import CreateView, TemplateView, UpdateView, ListView,
 
 from FitnessTracker.meals.forms import MealForm, EditMealForm, DeleteMealForm
 from FitnessTracker.meals.models import Meal
+from FitnessTracker.mixins import UserOwnershipMixin
 
 
 class AddMealView(LoginRequiredMixin, CreateView):
@@ -17,7 +18,7 @@ class AddMealView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditMealView(UpdateView):
+class EditMealView(UserOwnershipMixin, UpdateView):
     model = Meal
     form_class = EditMealForm
     template_name = 'meals/edit-meal.html'
@@ -34,7 +35,7 @@ class MealsHomepage(ListView):
         return Meal.objects.filter(user=self.request.user)
 
 
-class DeleteMealView(DeleteView, FormView):
+class DeleteMealView(UserOwnershipMixin, DeleteView, FormView):
     model = Meal
     form_class = DeleteMealForm
     template_name = 'meals/delete-meal.html'

@@ -8,6 +8,10 @@ class BaseGoalForm(forms.ModelForm):
         model = Goal
         exclude = ('user',)
 
+        help_texts = {
+            'make_public': 'Must be approved by staff member',
+        }
+
 
 class SetGoalForm(BaseGoalForm):
     class Meta(BaseGoalForm.Meta):
