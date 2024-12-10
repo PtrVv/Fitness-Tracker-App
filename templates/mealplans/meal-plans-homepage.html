@@ -1,0 +1,41 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block header %}
+    {{ block.super }}
+        <link rel="stylesheet" href="{% static 'css/mealplans.css' %}">
+{% endblock %}
+
+{% block content %}
+            <div class="add-mealplan">
+                <div class="mealplan-tooltip-container">
+                
+                    <a href="{% url 'add-mealplan' %}" class="add-icon" title="Add Meal Plan">+</a>
+                    <div class="mealplan-tooltip">Add MealPlan</div>
+                </div>
+            </div>
+
+
+        {% if not mealplans %}
+            <p class="no-mealplans-message">No meal plans available. Click the "+" icon to add one!</p>
+        {% endif %}
+
+
+    <div class="container">
+        <div class="mealplans-grid">
+            {% for mealplan in mealplans %}
+            <div class="mealplan-card">
+                <h3 class="mealplan-name">{{ mealplan.plan_name }}</h3>
+                {% if mealplan.plan_type %}
+                    <p>Inteded for: <strong>{{ mealplan.plan_type }}</strong></p>
+                {% else %}
+                    <p>Inteded for: <strong>N/A</strong></p>
+                {% endif %}
+                <p>Total Calories: {{ mealplan.total_calories }}</p>
+                <a href="{% url 'mealplan-details' mealplan.id %}" class="details-button">Details</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

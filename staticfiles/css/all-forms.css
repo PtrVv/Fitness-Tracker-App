@@ -185,3 +185,21 @@
     margin-top: 5px;
     font-style: italic;
 }
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+
+.btn-secondary {
+    background-color: #9ba4b5;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7a8093;
+}

@@ -1,0 +1,112 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block header %}
+    {{ block.super }}
+        <link rel="stylesheet" href="{% static 'css/mealplan-details.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="mealplan-details-container">
+    <h2>{{ mealplan.plan_name }}</h2>
+
+    <div class="meal-section">
+        <h3>Breakfast</h3>
+        <div class="meal-list">
+            {% for meal in breakfast %}
+                <div class="meal-item">
+                    <span class="meal-name">{{ meal.name }}</span> -
+                    <span class="meal-calories">{{ meal.calories }} kcal</span>
+                </div>
+            {% empty %}
+                <p>No breakfast meals selected.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="meal-section">
+        <h3>Morning Snack</h3>
+        <div class="meal-list">
+            {% for meal in morning_snack %}
+                <div class="meal-item">
+                    <span class="meal-name">{{ meal.name }}</span> -
+                    <span class="meal-calories">{{ meal.calories }} kcal</span>
+                </div>
+            {% empty %}
+                <p>No morning snack meals selected.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="meal-section">
+        <h3>Lunch</h3>
+        <div class="meal-list">
+            {% for meal in lunch %}
+                <div class="meal-item">
+                    <span class="meal-name">{{ meal.name }}</span> -
+                    <span class="meal-calories">{{ meal.calories }} kcal</span>
+                </div>
+            {% empty %}
+                <p>No lunch meals selected.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="meal-section">
+        <h3>Afternoon Snack</h3>
+        <div class="meal-list">
+            {% for meal in afternoon_snack %}
+                <div class="meal-item">
+                    <span class="meal-name">{{ meal.name }}</span> -
+                    <span class="meal-calories">{{ meal.calories }} kcal</span>
+                </div>
+            {% empty %}
+                <p>No afternoon snack meals selected.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="meal-section">
+        <h3>Dinner</h3>
+        <div class="meal-list">
+            {% for meal in dinner %}
+                <div class="meal-item">
+                    <span class="meal-name">{{ meal.name }}</span> -
+                    <span class="meal-calories">{{ meal.calories }} kcal</span>
+                </div>
+            {% empty %}
+                <p>No dinner meals selected.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="meal-section">
+        <h3>Desserts</h3>
+        <div class="meal-list">
+            {% for meal in desserts %}
+                <div class="meal-item">
+                    <span class="meal-name">{{ meal.name }}</span> -
+                    <span class="meal-calories">{{ meal.calories }} kcal</span>
+                </div>
+            {% empty %}
+                <p>No desserts selected.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mealplan-summary">
+        <h4>{{ mealplan.plan_name }} Summary for {{ mealplan.plan_type }}:</h4>
+        <div class="meal-item">
+            <span class="meal-name">Total Calories</span> -
+            <span class="meal-calories">{{ mealplan.total_calories }} kcal</span>
+        </div>
+    </div>
+
+    <div class="mealplan-actions">
+        <a href="{% url 'mealplans-home' %}" class="mealplan-go-back-button">Go Back</a>
+        <a href="{% url 'edit-mealplan' mealplan.pk %}" class="mealplan-edit-button">Edit Meal Plan</a>
+        <a href="{% url 'delete-mealplan' mealplan.pk %}" class="mealplan-delete-button">Delete Meal Plan</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+/* Container for the entire meal plan details */
+.mealplan-details-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling each section of meals */
+.meal-section {
+    margin-bottom: 30px;
+}
+
+/* Meal section headers */
+.meal-section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Styling the list of meals */
+.meal-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Meal item styling */
+.meal-item {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd; /* Light border around each meal */
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 1.1rem;
+}
+
+.meal-item span {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Meal name styling */
+.meal-name {
+    font-weight: bold;
+}
+
+/* Meal calories styling */
+.meal-calories {
+    color: #007bff;
+}
+
+/* No meals selected message */
+.meal-list p {
+    color: #777;
+    font-style: italic;
+}
+
+/* Summary section at the bottom */
+.mealplan-summary {
+    margin-top: 30px;
+}
+
+.mealplan-summary h4 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.mealplan-summary p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Styling for the action buttons at the bottom */
+.mealplan-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end; /* Position buttons side by side */
+    gap: 20px;
+}
+
+.mealplan-go-back-button {
+    background-color: #9ba4b5;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.mealplan-go-back-button:hover {
+    background-color: #7a8093;
+}
+
+/* Edit Meal Plan Button */
+.mealplan-edit-button {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #394867;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 150px; /* Set fixed width */
+}
+
+.mealplan-edit-button:hover {
+    background-color: #212a3e;
+}
+
+/* Delete Meal Plan Button */
+.mealplan-delete-button {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #e74c3c;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 150px; /* Set fixed width */
+}
+
+.mealplan-delete-button:hover {
+    background-color: #c0392b;
+}

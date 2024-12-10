@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'FitnessTracker.goals',
     'FitnessTracker.meals',
     'FitnessTracker.workouts',
+    'FitnessTracker.mealplans',
 ]
 
 MIDDLEWARE = [

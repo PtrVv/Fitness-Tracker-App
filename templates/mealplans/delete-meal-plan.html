@@ -1,0 +1,23 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+    
+    <div class="form-container">
+        <a href="javascript:history.back()" class="btn btn-secondary mt-3">Go Back</a>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <h3>You're about to delete {{ mealplan.plan_name }}. Are you sure?</h3>
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" value="Delete" class="button-9">
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

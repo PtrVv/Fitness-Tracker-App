@@ -1,0 +1,132 @@
+/* Container for the entire page */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 50px;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Add Meal Plan Button/Icon */
+.add-mealplan {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.add-icon {
+    font-size: 3rem;
+    color: white;
+    background-color: #394867;
+    border-radius: 50%;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.add-icon:hover {
+    background-color: #212a3e;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip Container */
+.mealplan-tooltip-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Tooltip Styling */
+.mealplan-tooltip {
+    visibility: hidden;
+    background-color: #9ba4b5;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 50%; /* Align with the center of the icon */
+    left: 120%; /* Position the tooltip to the right of the icon */
+    transform: translateY(-50%);
+    z-index: 1;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s;
+}
+
+/* Show Tooltip on Hover */
+.mealplan-tooltip-container:hover .mealplan-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip Arrow */
+.mealplan-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%; /* Position the arrow on the left side of the tooltip */
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #9BA4B5 transparent transparent; /* Arrow color */
+}
+
+/* Meal Plans Grid */
+.mealplans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Meal Plan Card */
+.mealplan-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.mealplan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mealplan-name {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.details-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #394867;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+    background-color: #212a3e;
+}
+
+/* No Meal Plans Message */
+.no-mealplans-message {
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
