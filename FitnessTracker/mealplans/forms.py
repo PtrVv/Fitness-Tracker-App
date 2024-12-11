@@ -2,6 +2,7 @@ from django import forms
 
 from FitnessTracker.mealplans.models import MealPlan
 from FitnessTracker.meals.models import Meal
+from FitnessTracker.mixins import DisableFieldsMixin
 
 
 class BaseMealPlanForm(forms.ModelForm):
@@ -31,5 +32,5 @@ class EditMealPlanForm(BaseMealPlanForm):
     pass
 
 
-class DeleteMealPlanForm(BaseMealPlanForm):
-    pass
+class DeleteMealPlanForm(BaseMealPlanForm, DisableFieldsMixin):
+    disabled_fields = ('__all__',)

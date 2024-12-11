@@ -14,7 +14,7 @@
     <section class="goals-section">
         <h1>Welcome {{ user.username }} to Fitness Tracker</h1>
         {% if user.goals.all %}
-            <h2>Your Goals</h2>
+            <h2>Your Goals {{ user.goals.count }}/5</h2>
 
         {% else %}
             <h3>You haven't set any goals yet</h3>
