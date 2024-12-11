@@ -8,7 +8,11 @@
 
 {% block content %}
     <div class="mealplan-details-container">
-    <h2>{{ mealplan.plan_name }}</h2>
+    <h2>{{ mealplan.plan_name }}
+        {% if mealplan.make_public %}
+            (Public)
+        {% endif %}
+    </h2>
 
     <div class="meal-section">
         <h3>Breakfast</h3>

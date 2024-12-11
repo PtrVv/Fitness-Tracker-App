@@ -27,9 +27,11 @@
                 <div class="tooltip">Logout</div>
             </div>
         {% else %}
+            <a href="{% url 'about' %}">About</a>
+            
             <div class="tooltip-container">
                 <a href="{% url 'login' %}" class="profile-icon">
-                    <i class="fas fa-sign-in-alt icon"></i>
+                    <i class="fas fa-right-to-bracket icon"></i>
                 </a>
                 <div class="tooltip">Login</div>
             </div>

@@ -1,0 +1,80 @@
+{% extends 'common/base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="public-mealplans-container">
+    <h1>Explore Public Meal Plans</h1>
+    <div class="mealplan-list">
+        {% for mealplan in mealplans %}
+        <div class="mealplan-card">
+            <div class="user-info">
+                <img src="{{ mealplan.user.profile.profile_picture }}" alt="{{ mealplan.user.username }}'s profile picture" class="profile-picture">
+                <h2>{{ mealplan.user.username }}</h2>
+            </div>
+            <div class="mealplan-info">
+                <h3>{{ mealplan.plan_name }}</h3>
+{#                <p>{{ mealplan.description|default:"No description available." }}</p>#}
+                <p> Breakfast:
+                    {% for meals in mealplan.breakfast.all %}
+                        {% if mealplan.breakfast.all.count > 1 %}
+                            {{ meals.name }} |
+                        {% else %}
+                            {{ meals.name }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p> Morning Snack: 
+                    {% for meals in mealplan.morning_snack.all %}
+                        {% if mealplan.morning_snack.all.count > 1 %}
+                            {{ meals.name }} |
+                        {% else %}
+                            {{ meals.name }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p> Lunch:
+                    {% for meals in mealplan.lunch.all %}
+                         {% if mealplan.lunch.all.count > 1 %}
+                            {{ meals.name }} |
+                        {% else %}
+                            {{ meals.name }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p> Afternoon Snack:
+                    {% for meals in mealplan.afternoon_snack.all %}
+                         {% if mealplan.afternoon_snack.all.count > 1 %}
+                            {{ meals.name }} |
+                        {% else %}
+                            {{ meals.name }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p> Dinner:
+                    {% for meals in mealplan.dinner.all %}
+                         {% if mealplan.dinner.all.count > 1 %}
+                            {{ meals.name }} |
+                        {% else %}
+                            {{ meals.name }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p> Desserts:
+                    {% for meals in mealplan.desserts.all %}
+                         {% if mealplan.desserts.all.count > 1 %}
+                            {{ meals.name }} |
+                        {% else %}
+                            {{ meals.name }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p><strong>Total Calories: {{ mealplan.total_calories }}</strong></p>
+{#                <a href="{% url 'mealplan-details' mealplan.pk %}" class="details-button">View Meal Plan</a>#}
+            </div>
+        </div>
+        {% empty %}
+        <p>No public meal plans available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView, ListView
 
 from FitnessTracker.goals.models import Goal
+from FitnessTracker.mealplans.models import MealPlan
 
 
 class PrivateHomepageView(TemplateView):
@@ -27,3 +28,16 @@ class PublicHomepageView(ListView):
         queryset = queryset.order_by('approved', '-created_at')
 
         return queryset
+
+
+class AboutPageView(TemplateView):
+    template_name = 'common/about.html'
+
+
+class PublicMealPlansView(ListView):
+    model = MealPlan
+    template_name = 'common/shared-mealplans.html'
+    context_object_name = 'mealplans'
+
+    def get_queryset(self):
+        return MealPlan.objects.filter(make_public=True)
