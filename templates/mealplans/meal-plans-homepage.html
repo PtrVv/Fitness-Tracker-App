@@ -1,19 +1,23 @@
 {% extends 'common/base.html' %}
 {% load static %}
 
+{% block title %}
+    <title>MealPlans - Fitness Tracker</title>
+{% endblock %}
+
 {% block header %}
     {{ block.super }}
         <link rel="stylesheet" href="{% static 'css/mealplans.css' %}">
 {% endblock %}
 
 {% block content %}
-            <div class="add-mealplan">
-                <div class="mealplan-tooltip-container">
-                
-                    <a href="{% url 'add-mealplan' %}" class="add-icon" title="Add Meal Plan">+</a>
-                    <div class="mealplan-tooltip">Add MealPlan</div>
-                </div>
+        <div class="add-mealplan">
+            <div class="mealplan-tooltip-container">
+            
+                <a href="{% url 'add-mealplan' %}" class="add-icon" title="Add Meal Plan">+</a>
+                <div class="mealplan-tooltip">Add MealPlan</div>
             </div>
+        </div>
 
 
         {% if not mealplans %}
