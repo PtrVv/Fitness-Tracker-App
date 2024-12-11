@@ -11,7 +11,7 @@ from FitnessTracker.mixins import UserOwnershipMixin
 class UserRegistrationView(CreateView):
     form_class = UserForm
     template_name = 'registration/register.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('public-index')
 
 
 class ProfileDetailsView(LoginRequiredMixin, TemplateView):
