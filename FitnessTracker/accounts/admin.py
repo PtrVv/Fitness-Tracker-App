@@ -12,7 +12,9 @@ class UserModelAdmin(UserAdmin):
     form = AppUserChangeForm
     add_form = UserForm
 
-    list_display = ('username', 'email')
+    list_display = ('username', 'email', 'is_staff')
+    search_fields = ('username', 'email')
+    ordering = ('username',)
 
     add_fieldsets = (
         (
@@ -29,5 +31,3 @@ class UserModelAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important Dates', {'fields': ('last_login',)})
     )
-
-    
