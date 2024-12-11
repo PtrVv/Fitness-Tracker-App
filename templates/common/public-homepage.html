@@ -29,7 +29,12 @@
                         {% endif %}
 
                         <div class="goal-header">
-                            <img src="{{ goal.user.profile.profile_picture }}" alt="Profile Picture" class="profile-img">
+                            {% if goal.user.profile.profile_picture %}
+                                <img src="{{ goal.user.profile.profile_picture }}" alt="Profile Picture" class="profile-img">
+                            {% else %}
+                                <img src="{% static 'images/default_pfp.jpg' %}"
+                                    alt="Profile Picture" class="profile-picture">
+                            {% endif %}
                             <h3>{{ goal.user.username }}</h3>
                         </div>
                         <h4>{{ goal.name }}</h4>
