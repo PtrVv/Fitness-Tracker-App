@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
 
@@ -17,7 +18,7 @@ class MealPlanHomePageView(ListView):
         return queryset
 
 
-class CreateMealPlanView(CreateView):
+class CreateMealPlanView(LoginRequiredMixin, CreateView):
     model = MealPlan
     form_class = AddMealPlanForm
     template_name = 'mealplans/add-meal-plan.html'

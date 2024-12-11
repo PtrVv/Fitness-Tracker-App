@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, FormView
 
@@ -16,7 +17,7 @@ class WorkoutHomepage(ListView):
         return Workout.objects.filter(user=self.request.user)
 
 
-class AddWorkoutView(CreateView):
+class AddWorkoutView(LoginRequiredMixin, CreateView):
     model = Workout
     form_class = AddWorkoutForm
     template_name = 'workouts/add-workout.html'
