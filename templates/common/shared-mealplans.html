@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="public-mealplans-container">
@@ -7,12 +8,15 @@
         {% for mealplan in mealplans %}
         <div class="mealplan-card">
             <div class="user-info">
-                <img src="{{ mealplan.user.profile.profile_picture }}" alt="{{ mealplan.user.username }}'s profile picture" class="profile-picture">
+                {% if mealplan.user.profile.profile_picture %}
+                    <img src="{{ mealplan.user.profile.profile_picture }}" alt="{{ mealplan.user.username }}'s profile picture" class="profile-picture">
+                {% else %}
+                    <img src="{% static 'images/default_pfp.jpg' %}" alt="Profile Picture" class="profile-picture">  
+                {% endif %}
                 <h2>{{ mealplan.user.username }}</h2>
             </div>
             <div class="mealplan-info">
                 <h3>{{ mealplan.plan_name }}</h3>
-{#                <p>{{ mealplan.description|default:"No description available." }}</p>#}
                 <p> Breakfast:
                     {% for meals in mealplan.breakfast.all %}
                         {% if mealplan.breakfast.all.count > 1 %}
@@ -68,7 +72,6 @@
                     {% endfor %}
                 </p>
                 <p><strong>Total Calories: {{ mealplan.total_calories }}</strong></p>
-{#                <a href="{% url 'mealplan-details' mealplan.pk %}" class="details-button">View Meal Plan</a>#}
             </div>
         </div>
         {% empty %}
